@@ -6,14 +6,18 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      color: #333;
+      background-color: #d9d9d9; /* 전체 배경 회색 */
+      color: #f2f2f2; /* 기본 글자 밝은 흰색 */
       text-align: center;
       padding: 40px;
       transition: background-color 0.3s, color 0.3s;
     }
 
-    h1, h2 {
+    h1 {
+      color: #e6e6e6; /* 타이틀을 조금 어두운 흰색 */
+    }
+
+    h2 {
       color: #2c3e50;
     }
 
@@ -204,8 +208,8 @@
         body.style.color = "#f0f4f8";
         boxes.forEach(b => b.style.backgroundColor = "#34495e");
       } else {
-        body.style.backgroundColor = "#f0f4f8";
-        body.style.color = "#333";
+        body.style.backgroundColor = "#d9d9d9";
+        body.style.color = "#f2f2f2";
         boxes.forEach(b => b.style.backgroundColor = "#ffffff");
       }
     }
