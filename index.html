@@ -10,6 +10,7 @@
       color: #333;
       text-align: center;
       padding: 40px;
+      transition: background-color 0.3s, color 0.3s; /* 다크모드 부드럽게 */
     }
 
     h1, h2 {
@@ -31,6 +32,7 @@
       width: 60%;
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
       text-align: left;
+      transition: background-color 0.3s;
     }
 
     /* 토글 디자인 */
@@ -43,6 +45,7 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       cursor: pointer;
       text-align: left;
+      transition: background-color 0.3s;
     }
 
     summary {
@@ -64,6 +67,7 @@
       color: white;
       cursor: pointer;
       font-size: 16px;
+      transition: background-color 0.3s;
     }
 
     button:hover {
@@ -90,6 +94,7 @@
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       width: 300px;
       text-align: center;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     #login-box input {
@@ -138,6 +143,12 @@
     <button onclick="openLogin()">로그인</button>
   </div>
 
+  <!-- 다크 모드 버튼 -->
+  <div class="feature-box" style="text-align:center;">
+    <h2>테마 변경</h2>
+    <button onclick="toggleDarkMode()">다크 모드 켜기/끄기</button>
+  </div>
+
   <!-- 로그인 모달 -->
   <div id="login-modal">
     <div id="login-box">
@@ -151,6 +162,7 @@
   </div>
 
   <script>
+    // 로그인 모달 제어
     const loginModal = document.getElementById("login-modal");
 
     function openLogin() {
@@ -170,6 +182,26 @@
         closeLogin();
       } else {
         alert("로그인 실패! 아이디: user, 비밀번호: 1234");
+      }
+    }
+
+    // 다크 모드 토글
+    let darkMode = false;
+
+    function toggleDarkMode() {
+      const body = document.body;
+      const boxes = document.querySelectorAll('.feature-box, details, #login-box');
+
+      darkMode = !darkMode;
+
+      if (darkMode) {
+        body.style.backgroundColor = "#2c3e50";
+        body.style.color = "#f0f4f8";
+        boxes.forEach(b => b.style.backgroundColor = "#34495e");
+      } else {
+        body.style.backgroundColor = "#f0f4f8";
+        body.style.color = "#333";
+        boxes.forEach(b => b.style.backgroundColor = "#ffffff");
       }
     }
   </script>
