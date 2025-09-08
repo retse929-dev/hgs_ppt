@@ -10,7 +10,7 @@
       color: #333;
       text-align: center;
       padding: 40px;
-      transition: background-color 0.3s, color 0.3s; /* 다크모드 부드럽게 */
+      transition: background-color 0.3s, color 0.3s;
     }
 
     h1, h2 {
@@ -104,6 +104,14 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
+
+    /* 다크 모드 버튼 고정 */
+    #dark-mode-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
   </style>
 </head>
 <body>
@@ -143,12 +151,6 @@
     <button onclick="openLogin()">로그인</button>
   </div>
 
-  <!-- 다크 모드 버튼 -->
-  <div class="feature-box" style="text-align:center;">
-    <h2>테마 변경</h2>
-    <button onclick="toggleDarkMode()">다크 모드 켜기/끄기</button>
-  </div>
-
   <!-- 로그인 모달 -->
   <div id="login-modal">
     <div id="login-box">
@@ -160,6 +162,9 @@
       <button onclick="closeLogin()">닫기</button>
     </div>
   </div>
+
+  <!-- 다크 모드 버튼 -->
+  <button id="dark-mode-btn" onclick="toggleDarkMode()">다크 모드 켜기/끄기</button>
 
   <script>
     // 로그인 모달 제어
